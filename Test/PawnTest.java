@@ -1,7 +1,3 @@
-import static org.junit.Assert.*;
-
-import org.junit.Test;
-
 import junit.framework.TestCase;
 
 
@@ -17,8 +13,6 @@ public class PawnTest extends TestCase {
 		Pawn pawn2 = new Pawn(black);
 		String color2 = pawn2.getColor();
 		assertEquals("black", color2);
-		
-		
 		
 	}
 
