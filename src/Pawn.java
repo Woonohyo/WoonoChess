@@ -1,8 +1,7 @@
-
 public class Pawn {
 	private String color;
-	final String white = "white";
-	final String black = "black";
+	public final String white = "white";
+	public final String black = "black";
 	
 	Pawn() {
 		this.color = white;
