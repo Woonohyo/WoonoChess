@@ -1,6 +1,8 @@
 package chess;
 import java.util.ArrayList;
 
+import pieces.Pawn;
+
 /**
  * 체스 보드판을 생성합니다.
  * 체스 말의 개수와, 가지고 있는 Pawn의 목록을 배열로 저장합니다.
