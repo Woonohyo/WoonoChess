@@ -1,3 +1,4 @@
+package chess;
 import junit.framework.TestCase;
 
 
@@ -15,7 +16,7 @@ public class BoardTest extends TestCase {
 	
 	public void testAdd() throws Exception {
 		Pawn pawn = new Pawn();
-		Pawn pawn1 = new Pawn();
+		Pawn pawn1 = new Pawn(pawn.white);
 		Pawn pawn2 = new Pawn(pawn.black);
 		
 		Board myBoard = new Board();

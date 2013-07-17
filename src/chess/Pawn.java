@@ -1,3 +1,4 @@
+package chess;
 /**
  * 체스말 Pawn의 정보를 담고 있는 클래스  
  * @author Woonohyo & Jay
