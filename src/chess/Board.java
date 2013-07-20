@@ -19,14 +19,14 @@ public class Board {
 	public void initialize() {
 		rowInit();
 		
-		rowFiller(0, sBlank);
-		rowFiller(1, sWhite);
-		rowFiller(2, sBlank);
-		rowFiller(3, sBlank);
-		rowFiller(4, sBlank);
-		rowFiller(5, sBlank);
-		rowFiller(6, sBlack);
-		rowFiller(7, sBlank);
+		rowFiller(0, sBlankPawn);
+		rowFiller(1, sWhitePawn);
+		rowFiller(2, sBlankPawn);
+		rowFiller(3, sBlankPawn);
+		rowFiller(4, sBlankPawn);
+		rowFiller(5, sBlankPawn);
+		rowFiller(6, sBlackPawn);
+		rowFiller(7, sBlankPawn);
 	}
 	
 	public void rowInit () {
@@ -38,7 +38,7 @@ public class Board {
 	public void rowFiller (int num, String sColor) {
 		for ( int i = 0; i < 8; i++) {
 				rows.get(num).add(new Pawn(sColor));
-				if (sColor == sWhite || sColor == sBlack) numChessman++;
+				if (sColor == sWhitePawn || sColor == sBlackPawn) numChessman++;
 		}
 	}
 }

@@ -7,11 +7,11 @@ public class PawnTest extends TestCase {
 	public void testCreate() throws Exception {
 		Board myBoard = new Board();
 
-		Pawn pawn1 = new Pawn(sWhite);
+		Pawn pawn1 = new Pawn(sWhitePawn);
 		String color1 = pawn1.getColor();
 		assertEquals("white", color1);
 		
-		Pawn pawn2 = new Pawn(sBlack);
+		Pawn pawn2 = new Pawn(sBlackPawn);
 		String color2 = pawn2.getColor();
 		assertEquals("black", color2);
 		

@@ -8,9 +8,9 @@ package pieces;
 public class Pawn {
 	private String color;
 	private char symbol;
-	static public final String sWhite = "white";
-	static public final String sBlack = "black";
-	static public final String sBlank = ".";
+	static public final String sWhitePawn = "white";
+	static public final String sBlackPawn = "black";
+	static public final String sBlankPawn = ".";
 	static public final char whiteSymbol = 'p';
 	static public final char blankSymbol = '.';
 
@@ -18,7 +18,7 @@ public class Pawn {
 	 * 기본 생성시에는 색을 하얀색으로 강제 지정합니다.
 	 */
 	public Pawn() {
-		this.color = sWhite;
+		this.color = sWhitePawn;
 		this.symbol = 'p';
 	}
 	
