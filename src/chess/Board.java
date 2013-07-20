@@ -24,7 +24,7 @@ public class Board {
 		ArrayList<Pawn> secondRow = new ArrayList<Pawn>();
 		rows.add(secondRow);
 		for ( i = 0; i < 8; i++) {
-			secondRow.add(new Pawn(Pawn.sBlack, Pawn.blackPawn));
+			secondRow.add(new Pawn(Pawn.sWhite, Pawn.whitePawn));
 			numChessman++;
 		}
 		
@@ -43,7 +43,7 @@ public class Board {
 		ArrayList<Pawn> seventhRow = new ArrayList<Pawn>();
 		rows.add(seventhRow);
 		for ( i = 0; i < 8; i++) {
-			secondRow.add(new Pawn(Pawn.sWhite, Pawn.whitePawn));
+			seventhRow.add(new Pawn(Pawn.sBlack, Pawn.blackPawn));
 			numChessman++;
 		}
 		

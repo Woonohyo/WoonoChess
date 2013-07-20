@@ -7,18 +7,18 @@ package pieces;
 
 public class Pawn {
 	private String color;
-	private char represent;
+	private String symbol;
 	static public final String sWhite = "white";
 	static public final String sBlack = "black";
-	static public final char whitePawn = 'p';
-	static public final char blackPawn = 'P';
+	static public final String whitePawn = "p";
+	static public final String blackPawn = "P";
 	
 	/**
 	 * 기본 생성시에는 색을 하얀색으로 강제 지정합니다.
 	 */
 	public Pawn() {
 		this.color = sWhite;
-		this.represent = whitePawn;
+		this.symbol = whitePawn;
 	}
 	
 	/**
@@ -26,9 +26,9 @@ public class Pawn {
 	 * @param color -- white 혹은 black으로 체스 말의 색을 뜻합니다.
 	 * @param whitepawn2 
 	 */
-	public Pawn(String color, char represent) {
+	public Pawn(String color, String symbol) {
 		this.color = color;
-		this.represent = represent;
+		this.symbol = symbol;
 	}
 	
 	/**
@@ -36,6 +36,11 @@ public class Pawn {
 	 */
 	String getColor() {
 		return this.color;
+	}
+
+	public String getSymbol() {
+		
+		return symbol;
 	}
 
 }
