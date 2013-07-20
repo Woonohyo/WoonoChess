@@ -6,6 +6,7 @@ import pieces.Pawn;
 import junit.framework.TestCase;
 
 public class BoardTest extends TestCase {
+	private static final String NEWLINE = System.getProperty("line.separator");
 	private Board myBoard;
 	private Pawn pawn1, pawn2;
 
@@ -17,7 +18,8 @@ public class BoardTest extends TestCase {
 
 	public void testCreate() throws Exception {
 		myBoard.initialize();
-
+		ArrayList<StringBuilder> sbRows = new ArrayList<StringBuilder>();
+		
 		StringBuilder row1 = new StringBuilder();
 		ArrayList<Pawn> firstRow = myBoard.rows.get(0);
 		for (int i = 0; i < 8; i++){
@@ -66,6 +68,16 @@ public class BoardTest extends TestCase {
 			row8.append(eighthRow.get(i).getSymbol());
 		}
 		
+		sbRows.add(row1);
+		sbRows.add(row2);
+		sbRows.add(row3);
+		sbRows.add(row4);
+		sbRows.add(row5);
+		sbRows.add(row6);
+		sbRows.add(row7);
+		sbRows.add(row8);
+		
+		
 		assertEquals(16, myBoard.numChessman);		
 		assertEquals("........", row1.toString());
 		assertEquals("pppppppp", row2.toString());
@@ -75,6 +87,15 @@ public class BoardTest extends TestCase {
 		assertEquals("........", row6.toString());
 		assertEquals("PPPPPPPP", row7.toString());
 		assertEquals("........", row8.toString());
+		
+		StringBuilder printBoard = new StringBuilder();
+		
+		for(int i = 0; i < 8; i++){
+			printBoard.append(sbRows.get(i));
+			printBoard.append(NEWLINE);
+		}
+		
+		System.out.println(printBoard.toString());
 		
 	}
 
