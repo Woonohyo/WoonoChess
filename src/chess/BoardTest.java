@@ -29,8 +29,8 @@ public class BoardTest extends TestCase {
 		
 		for ( int i = 0; i < 8; i++) {
 			if ( i == 1) assertEquals("pppppppp", sbRows.get(i).toString());	
-			if ( i == 6) assertEquals("PPPPPPPP", sbRows.get(i).toString());
-			else assertEquals("........", sbRows.get(0).toString());
+			else if ( i == 6) assertEquals("PPPPPPPP", sbRows.get(i).toString());
+			else assertEquals("........", sbRows.get(i).toString());
 		}
 
 		StringBuilder printBoard = new StringBuilder();
