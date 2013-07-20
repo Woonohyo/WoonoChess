@@ -9,8 +9,8 @@ public class BoardTest extends TestCase {
 	
 	public void setUp() {
 		myBoard = new Board();
-		pawn1 = new Pawn(Pawn.white);
-		pawn2 = new Pawn(Pawn.black);
+		pawn1 = new Pawn(Pawn.sWhite, Pawn.whitePawn);
+		pawn2 = new Pawn(Pawn.sBlack, Pawn.blackPawn);
 	}
 	
 	public void testCreate() throws Exception {
