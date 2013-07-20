@@ -25,16 +25,14 @@ public class BoardTest extends TestCase {
 			}
 		}
 		
-		assertEquals(16, myBoard.numChessman);		
-		assertEquals("........", sbRows.get(0).toString());
-		assertEquals("pppppppp", sbRows.get(1).toString());
-		assertEquals("........", sbRows.get(2).toString());
-		assertEquals("........", sbRows.get(3).toString());
-		assertEquals("........", sbRows.get(4).toString());
-		assertEquals("........", sbRows.get(5).toString());
-		assertEquals("PPPPPPPP", sbRows.get(6).toString());
-		assertEquals("........", sbRows.get(7).toString());
+		assertEquals(16, myBoard.numChessman);
 		
+		for ( int i = 0; i < 8; i++) {
+			if ( i == 1) assertEquals("pppppppp", sbRows.get(i).toString());	
+			if ( i == 6) assertEquals("PPPPPPPP", sbRows.get(i).toString());
+			else assertEquals("........", sbRows.get(0).toString());
+		}
+
 		StringBuilder printBoard = new StringBuilder();
 		
 		for(int i = 0; i < 8; i++){
