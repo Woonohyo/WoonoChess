@@ -21,51 +21,51 @@ public class Board {
 		ArrayList<Pawn> firstRow = new ArrayList<Pawn>();
 		rows.add(firstRow);
 		for ( i = 0; i < 8; i++) {			
-			firstRow.add(new Pawn(Pawn.blankPawn, Pawn.blankPawn));
+			firstRow.add(new Pawn(Pawn.sBlank));
 		}
 		
 		ArrayList<Pawn> secondRow = new ArrayList<Pawn>();
 		rows.add(secondRow);
 		for ( i = 0; i < 8; i++) {
-			secondRow.add(new Pawn(Pawn.sWhite, Pawn.whitePawn));
+			secondRow.add(new Pawn(Pawn.sWhite));
 			numChessman++;
 		}
 		
 		ArrayList<Pawn> thirdRow = new ArrayList<Pawn>();
 		rows.add(thirdRow);
 		for ( i = 0; i < 8; i++) {			
-			thirdRow.add(new Pawn(Pawn.blankPawn, Pawn.blankPawn));
+			thirdRow.add(new Pawn(Pawn.sBlank));
 		}
 
 		ArrayList<Pawn> fourthRow = new ArrayList<Pawn>();
 		rows.add(fourthRow);
 		for ( i = 0; i < 8; i++) {			
-			fourthRow.add(new Pawn(Pawn.blankPawn, Pawn.blankPawn));
+			fourthRow.add(new Pawn(Pawn.sBlank));
 		}
 
 		ArrayList<Pawn> fifthRow = new ArrayList<Pawn>();
 		rows.add(fifthRow);
 		for ( i = 0; i < 8; i++) {			
-			fifthRow.add(new Pawn(Pawn.blankPawn, Pawn.blankPawn));
+			fifthRow.add(new Pawn(Pawn.sBlank));
 		}
 		
 		ArrayList<Pawn> sixthRow = new ArrayList<Pawn>();
 		rows.add(sixthRow);
 		for ( i = 0; i < 8; i++) {			
-			sixthRow.add(new Pawn(Pawn.blankPawn, Pawn.blankPawn));
+			sixthRow.add(new Pawn(Pawn.sBlank));
 		}
 		
 		ArrayList<Pawn> seventhRow = new ArrayList<Pawn>();
 		rows.add(seventhRow);
 		for ( i = 0; i < 8; i++) {
-			seventhRow.add(new Pawn(Pawn.sBlack, Pawn.blackPawn));
+			seventhRow.add(new Pawn(Pawn.sBlack));
 			numChessman++;
 		}
 		
 		ArrayList<Pawn> eighthRow = new ArrayList<Pawn>();
 		rows.add(eighthRow);
 		for ( i = 0; i < 8; i++) {			
-			eighthRow.add(new Pawn(Pawn.blankPawn, Pawn.blankPawn));
+			eighthRow.add(new Pawn(Pawn.sBlank));
 		}
 	}
 }
