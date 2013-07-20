@@ -12,6 +12,7 @@ public class Pawn {
 	static public final String sBlack = "black";
 	static public final String whitePawn = "p";
 	static public final String blackPawn = "P";
+	static public final String blankPawn = ".";
 	
 	/**
 	 * 기본 생성시에는 색을 하얀색으로 강제 지정합니다.

@@ -1,7 +1,7 @@
 package chess;
 import java.util.ArrayList;
-
 import pieces.Pawn;
+import static pieces.Pawn.*;
 
 /**
  * 체스 보드판을 생성합니다.
@@ -20,6 +20,9 @@ public class Board {
 		int i;
 		ArrayList<Pawn> firstRow = new ArrayList<Pawn>();
 		rows.add(firstRow);
+		for ( i = 0; i < 8; i++) {			
+			firstRow.add(new Pawn(Pawn.blankPawn, Pawn.blankPawn));
+		}
 		
 		ArrayList<Pawn> secondRow = new ArrayList<Pawn>();
 		rows.add(secondRow);
@@ -30,15 +33,27 @@ public class Board {
 		
 		ArrayList<Pawn> thirdRow = new ArrayList<Pawn>();
 		rows.add(thirdRow);
+		for ( i = 0; i < 8; i++) {			
+			thirdRow.add(new Pawn(Pawn.blankPawn, Pawn.blankPawn));
+		}
 
 		ArrayList<Pawn> fourthRow = new ArrayList<Pawn>();
 		rows.add(fourthRow);
+		for ( i = 0; i < 8; i++) {			
+			fourthRow.add(new Pawn(Pawn.blankPawn, Pawn.blankPawn));
+		}
 
 		ArrayList<Pawn> fifthRow = new ArrayList<Pawn>();
 		rows.add(fifthRow);
+		for ( i = 0; i < 8; i++) {			
+			fifthRow.add(new Pawn(Pawn.blankPawn, Pawn.blankPawn));
+		}
 		
 		ArrayList<Pawn> sixthRow = new ArrayList<Pawn>();
 		rows.add(sixthRow);
+		for ( i = 0; i < 8; i++) {			
+			sixthRow.add(new Pawn(Pawn.blankPawn, Pawn.blankPawn));
+		}
 		
 		ArrayList<Pawn> seventhRow = new ArrayList<Pawn>();
 		rows.add(seventhRow);
@@ -49,5 +64,8 @@ public class Board {
 		
 		ArrayList<Pawn> eighthRow = new ArrayList<Pawn>();
 		rows.add(eighthRow);
+		for ( i = 0; i < 8; i++) {			
+			eighthRow.add(new Pawn(Pawn.blankPawn, Pawn.blankPawn));
+		}
 	}
 }
