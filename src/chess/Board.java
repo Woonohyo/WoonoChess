@@ -11,14 +11,43 @@ import pieces.Pawn;
 
 public class Board {
 	public int numChessman = 0;
-	ArrayList<Pawn> pawns = new ArrayList<Pawn>();
+	ArrayList<ArrayList<Pawn>> rows = new ArrayList<ArrayList<Pawn>>();
 
 	/**
-	 * 체스 보드판에 체스말 Pawn을 추가합니다.
-	 * @param pawn
+	 * 체스 보드에 쓰일 여덟개의 row를 생성합니다.
 	 */
-	public void addChessman(Pawn pawn) {
-		pawns.add(pawn);
-		numChessman++;
+	public void initialize() {
+		int i;
+		ArrayList<Pawn> firstRow = new ArrayList<Pawn>();
+		rows.add(firstRow);
+		
+		ArrayList<Pawn> secondRow = new ArrayList<Pawn>();
+		rows.add(secondRow);
+		for ( i = 0; i < 8; i++) {
+			secondRow.add(new Pawn(Pawn.sBlack, Pawn.blackPawn));
+			numChessman++;
+		}
+		
+		ArrayList<Pawn> thirdRow = new ArrayList<Pawn>();
+		rows.add(thirdRow);
+
+		ArrayList<Pawn> fourthRow = new ArrayList<Pawn>();
+		rows.add(fourthRow);
+
+		ArrayList<Pawn> fifthRow = new ArrayList<Pawn>();
+		rows.add(fifthRow);
+		
+		ArrayList<Pawn> sixthRow = new ArrayList<Pawn>();
+		rows.add(sixthRow);
+		
+		ArrayList<Pawn> seventhRow = new ArrayList<Pawn>();
+		rows.add(seventhRow);
+		for ( i = 0; i < 8; i++) {
+			secondRow.add(new Pawn(Pawn.sWhite, Pawn.whitePawn));
+			numChessman++;
+		}
+		
+		ArrayList<Pawn> eighthRow = new ArrayList<Pawn>();
+		rows.add(eighthRow);
 	}
 }
