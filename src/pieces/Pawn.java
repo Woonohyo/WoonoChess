@@ -49,7 +49,6 @@ public class Pawn {
 	}
 
 	public char getSymbol() {
-		
 		return symbol;
 	}
 
