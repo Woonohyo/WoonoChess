@@ -21,49 +21,50 @@ public class BoardTest extends TestCase {
 		ArrayList<StringBuilder> sbRows = new ArrayList<StringBuilder>();
 		
 		StringBuilder row1 = new StringBuilder();
+		StringBuilder row2 = new StringBuilder();
+		StringBuilder row3 = new StringBuilder();
+		StringBuilder row4 = new StringBuilder();
+		StringBuilder row5 = new StringBuilder();
+		StringBuilder row6 = new StringBuilder();
+		StringBuilder row7 = new StringBuilder();
+		StringBuilder row8 = new StringBuilder();
+
 		ArrayList<Pawn> firstRow = myBoard.rows.get(0);
 		for (int i = 0; i < 8; i++){
 			row1.append(firstRow.get(i).getSymbol());
 		}
 		
-		StringBuilder row2 = new StringBuilder();
 		ArrayList<Pawn> secondRow = myBoard.rows.get(1);
 		for (int i = 0; i < 8; i++) {
 			row2.append(secondRow.get(i).getSymbol());
 		}
 		
-		StringBuilder row3 = new StringBuilder();
-		ArrayList<Pawn> thirdRow = myBoard.rows.get(0);
+		ArrayList<Pawn> thirdRow = myBoard.rows.get(2);
 		for (int i = 0; i < 8; i++){
 			row3.append(thirdRow.get(i).getSymbol());
 		}
 		
-		StringBuilder row4 = new StringBuilder();
-		ArrayList<Pawn> fourthRow = myBoard.rows.get(0);
+		ArrayList<Pawn> fourthRow = myBoard.rows.get(3);
 		for (int i = 0; i < 8; i++){
 			row4.append(fourthRow.get(i).getSymbol());
 		}
 		
-		StringBuilder row5 = new StringBuilder();
-		ArrayList<Pawn> fifthRow = myBoard.rows.get(0);
+		ArrayList<Pawn> fifthRow = myBoard.rows.get(4);
 		for (int i = 0; i < 8; i++){
 			row5.append(fifthRow.get(i).getSymbol());
 		}
 		
-		StringBuilder row6 = new StringBuilder();
-		ArrayList<Pawn> sixthRow = myBoard.rows.get(0);
+		ArrayList<Pawn> sixthRow = myBoard.rows.get(5);
 		for (int i = 0; i < 8; i++){
 			row6.append(sixthRow.get(i).getSymbol());
 		}
 
-		StringBuilder row7 = new StringBuilder();
 		ArrayList<Pawn> seventhRow = myBoard.rows.get(6);
 		for (int i = 0; i < 8; i++){
 			row7.append(seventhRow.get(i).getSymbol());
 		}
 		
-		StringBuilder row8 = new StringBuilder();
-		ArrayList<Pawn> eighthRow = myBoard.rows.get(0);
+		ArrayList<Pawn> eighthRow = myBoard.rows.get(7);
 		for (int i = 0; i < 8; i++){
 			row8.append(eighthRow.get(i).getSymbol());
 		}
@@ -76,7 +77,6 @@ public class BoardTest extends TestCase {
 		sbRows.add(row6);
 		sbRows.add(row7);
 		sbRows.add(row8);
-		
 		
 		assertEquals(16, myBoard.numChessman);		
 		assertEquals("........", row1.toString());
