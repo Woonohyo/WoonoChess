@@ -1,5 +1,4 @@
 package pieces;
-import static chess.Board.increment;
 
 /**
  * 체스말 Pawn의 정보를 담고 있는 클래스
@@ -7,11 +6,13 @@ import static chess.Board.increment;
  * @author Woonohyo & Minju
  * 
  */
-
 public class Pieces {
 	private String color;
 	private char symbol;
 	private String name;
+	private static int blackCounter;
+	private static int whiteCounter;
+
 	static public final String WHITE_COLOR = "white";
 	static public final String BLACK_COLOR = "black";
 	static public final String BLANK_COLOR = "";
@@ -89,12 +90,24 @@ public class Pieces {
 	}
 
 	public static Pieces create(String color, String name) {
-		if ( color == WHITE_COLOR || color == BLACK_COLOR )
-			increment();
+		if (color == WHITE_COLOR)
+			whiteCounter++;
+		else if (color == BLACK_COLOR)
+			blackCounter++;
+
 		return new Pieces(color, name);
 	}
 
 	public String getName() {
 		return this.name;
 	}
+
+	public static int getWhiteCounter() {
+		return whiteCounter;
+	}
+
+	public static int getBlackCounter() {
+		return blackCounter;
+	}
+
 }
