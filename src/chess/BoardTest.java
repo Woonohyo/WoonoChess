@@ -1,10 +1,10 @@
 package chess;
 import java.util.ArrayList;
+import static util.StringUtil.NEWLINE;
 import static chess.Board.boardSize;
 import junit.framework.TestCase;
 
 public class BoardTest extends TestCase {
-	public static final String NEWLINE = System.getProperty("line.separator");
 	private Board myBoard;
 
 	public void setUp() {
