@@ -1,12 +1,10 @@
 package chess;
-
 import java.util.ArrayList;
-
-import pieces.Pawn;
+import static chess.Board.boardSize;
 import junit.framework.TestCase;
 
 public class BoardTest extends TestCase {
-	private static final String NEWLINE = System.getProperty("line.separator");
+	public static final String NEWLINE = System.getProperty("line.separator");
 	private Board myBoard;
 
 	public void setUp() {
@@ -18,30 +16,37 @@ public class BoardTest extends TestCase {
 		
 		ArrayList<StringBuilder> sbRows = new ArrayList<StringBuilder>();
 		
-		for ( int rowIdx = 0; rowIdx < 8; rowIdx++) {
-			for (int colIdx = 0; colIdx < 8; colIdx++){
+		for ( int rowIdx = 0; rowIdx < boardSize; rowIdx++) {
+			for (int colIdx = 0; colIdx < 8; colIdx++) {
 				sbRows.add(new StringBuilder());
 				sbRows.get(rowIdx).append(myBoard.rows.get(rowIdx).get(colIdx).getSymbol());
 			}
 		}
 		
 		assertEquals(16, myBoard.numChessman);
+		assertEquals(16, myBoard.numPawn);
 		
-		for ( int i = 0; i < 8; i++) {
-			if ( i == 1) assertEquals("pppppppp", sbRows.get(i).toString());	
-			else if ( i == 6) assertEquals("PPPPPPPP", sbRows.get(i).toString());
-			else assertEquals("........", sbRows.get(i).toString());
+		for ( int idx = 0; idx < boardSize; idx++) {
+			if ( idx == 1) {
+				assertEquals("pppppppp", sbRows.get(idx).toString());	
+				continue;
+			}
+			
+			if ( idx == 6) {
+				assertEquals("PPPPPPPP", sbRows.get(idx).toString());
+				continue;
+			}
+			
+			assertEquals("........", sbRows.get(idx).toString());
 		}
 
 		StringBuilder printBoard = new StringBuilder();
 		
-		for(int i = 0; i < 8; i++){
-			printBoard.append(sbRows.get(i));
+		for(int idx = 0; idx < boardSize; idx++) {
+			printBoard.append(sbRows.get(idx));
 			printBoard.append(NEWLINE);
 		}
 		
 		System.out.println(printBoard.toString());
-		
 	}
-
 }

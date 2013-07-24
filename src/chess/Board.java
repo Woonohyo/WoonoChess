@@ -11,6 +11,8 @@ import pieces.Pawn;
 
 public class Board {
 	public int numChessman = 0;
+	public int numPawn = 0;
+	public static final int boardSize = 8;
 	ArrayList<ArrayList<Pawn>> rows = new ArrayList<ArrayList<Pawn>>();
 
 	/**
@@ -19,26 +21,26 @@ public class Board {
 	public void initialize() {
 		rowInit();
 		
-		rowFiller(0, sBlankPawn);
-		rowFiller(1, sWhitePawn);
-		rowFiller(2, sBlankPawn);
-		rowFiller(3, sBlankPawn);
-		rowFiller(4, sBlankPawn);
-		rowFiller(5, sBlankPawn);
-		rowFiller(6, sBlackPawn);
-		rowFiller(7, sBlankPawn);
+		for ( int idx = 0; idx < boardSize; idx++) {
+			if (idx == 1) rowFiller(idx, SWHITEPAWN);
+			else if (idx == 6) rowFiller(idx, SBLACKPAWN);
+			else rowFiller(idx, SBLANKPAWN);
+		}
 	}
 	
 	public void rowInit () {
-		for ( int i = 0; i < 8; i++) {
+		for ( int idx = 0; idx < boardSize; idx++) {
 			rows.add(new ArrayList<Pawn>());
 		}
 	}
 	
 	public void rowFiller (int num, String sColor) {
-		for ( int i = 0; i < 8; i++) {
+		for ( int idx = 0; idx < boardSize; idx++) {
 				rows.get(num).add(new Pawn(sColor));
-				if (sColor == sWhitePawn || sColor == sBlackPawn) numChessman++;
+				if (sColor == SWHITEPAWN || sColor == SBLACKPAWN) {
+					numChessman++;
+					numPawn++;
+				}
 		}
 	}
 }

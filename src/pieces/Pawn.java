@@ -8,17 +8,17 @@ package pieces;
 public class Pawn {
 	private String color;
 	private char symbol;
-	static public final String sWhitePawn = "white";
-	static public final String sBlackPawn = "black";
-	static public final String sBlankPawn = ".";
-	static public final char whiteSymbol = 'p';
-	static public final char blankSymbol = '.';
+	static public final String SWHITEPAWN = "white";
+	static public final String SBLACKPAWN = "black";
+	static public final String SBLANKPAWN = ".";
+	static public final char WHITESYMBOL = 'p';
+	static public final char BLANKSYMBOL = '.';
 
 	/**
 	 * 기본 생성시에는 색을 하얀색으로 강제 지정합니다.
 	 */
 	public Pawn() {
-		this.color = sWhitePawn;
+		this.color = SWHITEPAWN;
 		this.symbol = 'p';
 	}
 	
@@ -30,15 +30,9 @@ public class Pawn {
 	public Pawn(String color) {
 		this.color = color;
 		
-		if ( this.color == "white") {
-			this.symbol = whiteSymbol;
-		}
-		else if ( this.color == "black") {
-			this.symbol = Character.toUpperCase(whiteSymbol);
-		}
-		else {
-			this.symbol = blankSymbol;
-		}
+		if ( this.color == "white")	this.symbol = WHITESYMBOL;
+		else if ( this.color == "black") this.symbol = Character.toUpperCase(WHITESYMBOL);
+		else this.symbol = BLANKSYMBOL;
 	}
 	
 	/**
@@ -51,5 +45,4 @@ public class Pawn {
 	public char getSymbol() {
 		return symbol;
 	}
-
 }
