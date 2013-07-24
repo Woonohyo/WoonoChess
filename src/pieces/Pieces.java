@@ -8,8 +8,8 @@ package pieces;
  */
 public class Pieces {
 	private String color;
-	private char symbol;
 	private String name;
+	private char symbol;
 	private static int blackCounter;
 	private static int whiteCounter;
 
@@ -123,5 +123,4 @@ public class Pieces {
 		else
 			return false;
 	}
-
 }

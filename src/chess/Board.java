@@ -11,8 +11,8 @@ import pieces.Pieces;
  */
 
 public class Board {
-	private static int numOfChessman = 0;
 	public static final int COLUMN_SIZE = 8;
+	public static final int ROW_SIZE = 8;
 	ArrayList<ArrayList<Pieces>> Board = new ArrayList<ArrayList<Pieces>>();
 	
 	public Board(){
@@ -29,17 +29,9 @@ public class Board {
 		Board.add(Row.CreateWhiteMain());
 	}
 
-	public static void increment() {
-		numOfChessman++;
-	}
-
-	public int getNumOfChessman() {
-		return numOfChessman;
-	}
-
 	public String print() {
 		StringBuilder sb1 = new StringBuilder();
-		for ( int i = 0; i < COLUMN_SIZE; i++) {
+		for ( int i = 0; i < ROW_SIZE; i++) {
 			sb1.append(Row.getSymbols(Board.get(i)));
 			sb1.append(NEWLINE);
 		}
