@@ -5,9 +5,10 @@ package pieces;
  *
  */
 
-public class Pawn {
+public class Pieces {
 	private String color;
 	private char symbol;
+	private String name;
 	static public final String SWHITEPAWN = "white";
 	static public final String SBLACKPAWN = "black";
 	static public final String SBLANKPAWN = ".";
@@ -17,23 +18,11 @@ public class Pawn {
 	/**
 	 * 기본 생성시에는 색을 하얀색으로 강제 지정합니다.
 	 */
-	public Pawn() {
-		this.color = SWHITEPAWN;
-		this.symbol = 'p';
+	private Pieces(String color, String name) {
+		this.color = color;
+		this.name = name;
 	}
 	
-	/**
-	 * 색깔을 지정한 경우의 생성자 
-	 * @param color -- white 혹은 black으로 체스 말의 색을 뜻합니다.
-	 * @param whitepawn2 
-	 */
-	public Pawn(String color) {
-		this.color = color;
-		
-		if ( this.color == "white")	this.symbol = WHITESYMBOL;
-		else if ( this.color == "black") this.symbol = Character.toUpperCase(WHITESYMBOL);
-		else this.symbol = BLANKSYMBOL;
-	}
 	
 	/**
 	 * @return 체스말의 색을 리턴합니다. 
@@ -44,5 +33,16 @@ public class Pawn {
 
 	public char getSymbol() {
 		return symbol;
+	}
+
+	public static Pieces create(String color, String name) {
+		// TODO Auto-generated method stub
+		return new Pieces(color, name);
+	}
+
+
+	public String getName() {
+		// TODO Auto-generated method stub
+		return this.name;
 	}
 }
