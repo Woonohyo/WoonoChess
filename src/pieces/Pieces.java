@@ -110,4 +110,18 @@ public class Pieces {
 		return blackCounter;
 	}
 
+	public boolean isWhite() {
+		if ( this.color == WHITE_COLOR )
+			return true;
+		else
+			return false;
+	}
+
+	public boolean isBlack() {
+		if ( this.color == BLACK_COLOR )
+			return true;
+		else
+			return false;
+	}
+
 }

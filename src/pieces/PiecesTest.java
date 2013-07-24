@@ -16,4 +16,15 @@ public class PiecesTest extends TestCase {
 		assertEquals(16, Pieces.getWhiteCounter());
 		assertEquals(16, Pieces.getBlackCounter());
 	}
+	
+	public void testWhichColor() throws Exception {
+		Pieces pawn1 = Pieces.create(WHITE_COLOR, PAWN);
+		Pieces pawn2 = Pieces.create(BLACK_COLOR, PAWN);
+		Pieces queen1 = Pieces.create(WHITE_COLOR, QUEEN);
+		
+		assertEquals(true, pawn1.isWhite());
+		assertEquals(true, pawn2.isBlack());
+		assertEquals(false, queen1.isBlack());
+			
+	}
 }
