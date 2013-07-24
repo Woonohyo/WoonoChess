@@ -1,8 +1,7 @@
 package chess;
-import java.util.ArrayList;
-import static util.StringUtil.NEWLINE;
-import static chess.Board.boardSize;
+import util.StringUtil;
 import junit.framework.TestCase;
+
 
 public class BoardTest extends TestCase {
 	private Board myBoard;
@@ -10,43 +9,16 @@ public class BoardTest extends TestCase {
 	public void setUp() {
 		myBoard = new Board();
 	}
-
+	
 	public void testCreate() throws Exception {
 		myBoard.initialize();
-		
-		ArrayList<StringBuilder> sbRows = new ArrayList<StringBuilder>();
-		
-		for ( int rowIdx = 0; rowIdx < boardSize; rowIdx++) {
-			for (int colIdx = 0; colIdx < 8; colIdx++) {
-				sbRows.add(new StringBuilder());
-				sbRows.get(rowIdx).append(myBoard.rows.get(rowIdx).get(colIdx).getSymbol());
-			}
-		}
-		
-		assertEquals(16, myBoard.numChessman);
-		assertEquals(16, myBoard.numPawn);
-		
-		for ( int idx = 0; idx < boardSize; idx++) {
-			if ( idx == 1) {
-				assertEquals("pppppppp", sbRows.get(idx).toString());	
-				continue;
-			}
-			
-			if ( idx == 6) {
-				assertEquals("PPPPPPPP", sbRows.get(idx).toString());
-				continue;
-			}
-			
-			assertEquals("........", sbRows.get(idx).toString());
-		}
-
-		StringBuilder printBoard = new StringBuilder();
-		
-		for(int idx = 0; idx < boardSize; idx++) {
-			printBoard.append(sbRows.get(idx));
-			printBoard.append(NEWLINE);
-		}
-		
-		System.out.println(printBoard.toString());
+		assertEquals(32, myBoard.getNumOfChessman());
+		String blankRank = StringUtil.appendNewLine("........");
+		assertEquals(StringUtil.appendNewLine("RNBQKBNR") +
+					StringUtil.appendNewLine("PPPPPPPP") + 
+					blankRank + blankRank + blankRank + blankRank +
+					StringUtil.appendNewLine("pppppppp") +
+					StringUtil.appendNewLine("rnbqkbnr"), 
+					myBoard.print());
 	}
 }

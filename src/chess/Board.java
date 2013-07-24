@@ -1,6 +1,7 @@
 package chess;
 import java.util.ArrayList;
-import static pieces.Pieces.*;
+import static util.StringUtil.NEWLINE;
+import chess.Row;
 import pieces.Pieces;
 
 /**
@@ -10,37 +11,40 @@ import pieces.Pieces;
  */
 
 public class Board {
-	public int numChessman = 0;
-	public int numPawn = 0;
-	public static final int boardSize = 8;
-	ArrayList<ArrayList<Pieces>> rows = new ArrayList<ArrayList<Pieces>>();
-
-	/**
-	 * 체스 보드에 쓰일 여덟개의 row를 생성합니다.
-	 */
+	private static int numOfChessman = 0;
+	public static final int COLUMN_SIZE = 8;
+	ArrayList<ArrayList<Pieces>> Board = new ArrayList<ArrayList<Pieces>>();
+	
+	public Board(){
+	}
+	
 	public void initialize() {
-		rowInit();
+		Board.add(Row.CreateBlackMain());
+		Board.add(Row.CreateBlackPawns());
+		Board.add(Row.CreateBlankRow());
+		Board.add(Row.CreateBlankRow());
+		Board.add(Row.CreateBlankRow());
+		Board.add(Row.CreateBlankRow());
+		Board.add(Row.CreateWhitePawns());
+		Board.add(Row.CreateWhiteMain());
+	}
+
+	public static void increment() {
+		numOfChessman++;
+	}
+
+	public int getNumOfChessman() {
+		return numOfChessman;
+	}
+
+	public String print() {
+		StringBuilder sb1 = new StringBuilder();
+		for ( int i = 0; i < COLUMN_SIZE; i++) {
+			sb1.append(Row.getSymbols(Board.get(i)));
+			sb1.append(NEWLINE);
+		}
 		
-		for ( int idx = 0; idx < boardSize; idx++) {
-			if (idx == 1) rowFiller(idx, SWHITEPAWN);
-			else if (idx == 6) rowFiller(idx, SBLACKPAWN);
-			else rowFiller(idx, SBLANKPAWN);
-		}
+		return sb1.toString();
 	}
-	
-	public void rowInit () {
-		for ( int idx = 0; idx < boardSize; idx++) {
-			rows.add(new ArrayList<Pieces>());
-		}
-	}
-	
-	public void rowFiller (int num, String sColor) {
-		for ( int idx = 0; idx < boardSize; idx++) {
-				rows.get(num).add(Pieces.create(sColor, "name"));
-				if (sColor == SWHITEPAWN || sColor == SBLACKPAWN) {
-					numChessman++;
-					numPawn++;
-				}
-		}
-	}
+
 }
