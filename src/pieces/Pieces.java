@@ -7,22 +7,11 @@ package pieces;
  * 
  */
 public class Pieces {
-	private String color;
-	private String name;
+	private Color color;
+	private Piece name;
 	private char symbol;
 	private static int blackCounter;
 	private static int whiteCounter;
-
-	static public final String WHITE_COLOR = "white";
-	static public final String BLACK_COLOR = "black";
-	static public final String BLANK_COLOR = "";
-
-	static public final String PAWN = "Pawn";
-	static public final String ROOK = "Rook";
-	static public final String KNIGHT = "Knight";
-	static public final String BISHOP = "Bishop";
-	static public final String QUEEN = "Queen";
-	static public final String KING = "King";
 
 	static public final char KING_SYMBOL = 'k';
 	static public final char QUEEN_SYMBOL = 'q';
@@ -31,49 +20,57 @@ public class Pieces {
 	static public final char ROOK_SYMBOL = 'r';
 	static public final char PAWN_SYMBOL = 'p';
 	static public final char BLANK_SYMBOL = '.';
+	
+	public enum Color {
+		WHITE, BLACK, BLANK
+	};
+	
+	public enum Piece {
+		PAWN, KNIGHT, ROOK, BISHOP, QUEEN, KING, BLANK
+	};
 
-	private Pieces(String color, String name) {
+	private Pieces(Color color, Piece piece) {
 		this.color = color;
-		this.name = name;
+		this.name = piece;
 
-		if (name == PAWN) {
+		if (piece == Piece.PAWN) {
 			this.symbol = PAWN_SYMBOL;
-			if (color == BLACK_COLOR)
+			if (color == Color.BLACK)
 				this.symbol = Character.toUpperCase(PAWN_SYMBOL);
 		}
 
-		if (name == ROOK) {
+		if (piece == Piece.ROOK) {
 			this.symbol = ROOK_SYMBOL;
-			if (color == BLACK_COLOR)
+			if (color == Color.BLACK)
 				this.symbol = Character.toUpperCase(ROOK_SYMBOL);
 
 		}
 
-		if (name == KNIGHT) {
+		if (piece == Piece.KNIGHT) {
 			this.symbol = KNIGHT_SYMBOL;
-			if (color == BLACK_COLOR)
+			if (color == Color.BLACK)
 				this.symbol = Character.toUpperCase(KNIGHT_SYMBOL);
 		}
 
-		if (name == BISHOP) {
+		if (piece == Piece.BISHOP) {
 			this.symbol = BISHOP_SYMBOL;
-			if (color == BLACK_COLOR)
+			if (color == Color.BLACK)
 				this.symbol = Character.toUpperCase(BISHOP_SYMBOL);
 		}
 
-		if (name == QUEEN) {
+		if (piece == Piece.QUEEN) {
 			this.symbol = QUEEN_SYMBOL;
-			if (color == BLACK_COLOR)
+			if (color == Color.BLACK)
 				this.symbol = Character.toUpperCase(QUEEN_SYMBOL);
 		}
 
-		if (name == KING) {
+		if (piece == Piece.KING) {
 			this.symbol = KING_SYMBOL;
-			if (color == BLACK_COLOR)
+			if (color == Color.BLACK)
 				this.symbol = Character.toUpperCase(KING_SYMBOL);
 		}
 
-		if (name == BLANK_COLOR) {
+		if (piece == Piece.BLANK) {
 			this.symbol = BLANK_SYMBOL;
 		}
 	}
@@ -82,24 +79,24 @@ public class Pieces {
 	 * @return 체스말의 색을 리턴합니다.
 	 */
 	String getColor() {
-		return this.color;
+		return this.color.toString();
 	}
 
 	public char getSymbol() {
 		return symbol;
 	}
 
-	public static Pieces create(String color, String name) {
-		if (color == WHITE_COLOR)
+	public static Pieces create(Color color, Piece piece) {
+		if (color == Color.WHITE)
 			whiteCounter++;
-		else if (color == BLACK_COLOR)
+		else if (color == Color.BLACK)
 			blackCounter++;
 
-		return new Pieces(color, name);
+		return new Pieces(color, piece);
 	}
 
 	public String getName() {
-		return this.name;
+		return this.name.toString();
 	}
 
 	public static int getWhiteCounter() {
@@ -111,14 +108,14 @@ public class Pieces {
 	}
 
 	public boolean isWhite() {
-		if ( this.color == WHITE_COLOR )
+		if ( this.color == Color.WHITE )
 			return true;
 		else
 			return false;
 	}
 
 	public boolean isBlack() {
-		if ( this.color == BLACK_COLOR )
+		if ( this.color == Color.BLACK )
 			return true;
 		else
 			return false;
