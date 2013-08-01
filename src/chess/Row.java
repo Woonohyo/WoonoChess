@@ -3,19 +3,21 @@ package chess;
 import java.util.ArrayList;
 import pieces.Pieces;
 import static chess.Board.COLUMN_SIZE;
+import static pieces.Pieces.Color.*;
+import static pieces.Pieces.Type.*;
 
 public class Row {
 	public static ArrayList<Pieces> CreateBlackMain() {
 		ArrayList<Pieces> row = new ArrayList<Pieces>();
 		
-		row.add(Pieces.create(Pieces.Color.BLACK, Pieces.Piece.ROOK));
-		row.add(Pieces.create(Pieces.Color.BLACK, Pieces.Piece.KNIGHT));
-		row.add(Pieces.create(Pieces.Color.BLACK, Pieces.Piece.BISHOP));
-		row.add(Pieces.create(Pieces.Color.BLACK, Pieces.Piece.QUEEN));
-		row.add(Pieces.create(Pieces.Color.BLACK, Pieces.Piece.KING));
-		row.add(Pieces.create(Pieces.Color.BLACK, Pieces.Piece.BISHOP));
-		row.add(Pieces.create(Pieces.Color.BLACK, Pieces.Piece.KNIGHT));
-		row.add(Pieces.create(Pieces.Color.BLACK, Pieces.Piece.ROOK));
+		row.add(Pieces.create(BLACK, ROOK));
+		row.add(Pieces.create(BLACK, KNIGHT));
+		row.add(Pieces.create(BLACK, BISHOP));
+		row.add(Pieces.create(BLACK, QUEEN));
+		row.add(Pieces.create(BLACK, KING));
+		row.add(Pieces.create(BLACK, BISHOP));
+		row.add(Pieces.create(BLACK, KNIGHT));
+		row.add(Pieces.create(BLACK, ROOK));
 		
 		return row;
 	}
@@ -24,7 +26,7 @@ public class Row {
 		ArrayList<Pieces> row = new ArrayList<Pieces>();
 		
 		for ( int i = 0; i < COLUMN_SIZE; i++)
-			row.add(Pieces.create(Pieces.Color.BLACK, Pieces.Piece.PAWN));
+			row.add(Pieces.create(BLACK, PAWN));
 		
 		return row;
 	}
@@ -33,7 +35,7 @@ public class Row {
 		ArrayList<Pieces> row = new ArrayList<Pieces>();
 		
 		for ( int i = 0; i < COLUMN_SIZE; i++)
-			row.add(Pieces.create(Pieces.Color.BLANK, Pieces.Piece.BLANK));
+			row.add(Pieces.create(NONE, BLANK));
 		
 		return row;
 	}
@@ -41,14 +43,14 @@ public class Row {
 	public static ArrayList<Pieces> CreateWhiteMain() {
 		ArrayList<Pieces> row = new ArrayList<Pieces>();
 		
-		row.add(Pieces.create(Pieces.Color.WHITE, Pieces.Piece.ROOK));
-		row.add(Pieces.create(Pieces.Color.WHITE, Pieces.Piece.KNIGHT));
-		row.add(Pieces.create(Pieces.Color.WHITE, Pieces.Piece.BISHOP));
-		row.add(Pieces.create(Pieces.Color.WHITE, Pieces.Piece.QUEEN));
-		row.add(Pieces.create(Pieces.Color.WHITE, Pieces.Piece.KING));
-		row.add(Pieces.create(Pieces.Color.WHITE, Pieces.Piece.BISHOP));
-		row.add(Pieces.create(Pieces.Color.WHITE, Pieces.Piece.KNIGHT));
-		row.add(Pieces.create(Pieces.Color.WHITE, Pieces.Piece.ROOK));
+		row.add(Pieces.create(WHITE, ROOK));
+		row.add(Pieces.create(WHITE, KNIGHT));
+		row.add(Pieces.create(WHITE, BISHOP));
+		row.add(Pieces.create(WHITE, QUEEN));
+		row.add(Pieces.create(WHITE, KING));
+		row.add(Pieces.create(WHITE, BISHOP));
+		row.add(Pieces.create(WHITE, KNIGHT));
+		row.add(Pieces.create(WHITE, ROOK));
 		
 		return row;
 	}
@@ -57,7 +59,7 @@ public class Row {
 		ArrayList<Pieces> row = new ArrayList<Pieces>();
 		
 		for ( int i = 0; i < COLUMN_SIZE; i++)
-			row.add(Pieces.create(Pieces.Color.WHITE, Pieces.Piece.PAWN));
+			row.add(Pieces.create(WHITE, PAWN));
 		
 		return row;
 	}

@@ -7,7 +7,7 @@ import pieces.Pieces;
 /**
  * 체스 보드판을 생성합니다.
  * 체스 말의 개수와, 가지고 있는 Pawn의 목록을 배열로 저장합니다.
- * @author Woonohyo & Minju
+ * @author Woonohyo & Jay
  */
 
 public class Board {
@@ -35,7 +35,6 @@ public class Board {
 			sb1.append(Row.getSymbols(Board.get(i)));
 			sb1.append(NEWLINE);
 		}
-		
 		return sb1.toString();
 	}
 

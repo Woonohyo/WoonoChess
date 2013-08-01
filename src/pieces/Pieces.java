@@ -3,76 +3,41 @@ package pieces;
 /**
  * 체스말 Pawn의 정보를 담고 있는 클래스
  * 
- * @author Woonohyo & Minju
+ * @author Woonohyo & Jay
  * 
  */
 public class Pieces {
 	private Color color;
-	private Piece name;
+	private Type type;
 	private char symbol;
 	private static int blackCounter;
 	private static int whiteCounter;
 
-	static public final char KING_SYMBOL = 'k';
-	static public final char QUEEN_SYMBOL = 'q';
-	static public final char BISHOP_SYMBOL = 'b';
-	static public final char KNIGHT_SYMBOL = 'n';
-	static public final char ROOK_SYMBOL = 'r';
-	static public final char PAWN_SYMBOL = 'p';
-	static public final char BLANK_SYMBOL = '.';
-	
-	public enum Color {
-		WHITE, BLACK, BLANK
+	public enum Color {                                 //왜 여기 static을 안써도 되나요?
+		WHITE, BLACK, NONE
 	};
 	
-	public enum Piece {
-		PAWN, KNIGHT, ROOK, BISHOP, QUEEN, KING, BLANK
+	public enum Type {
+		PAWN('p'), KNIGHT('n'), ROOK('r'), BISHOP('b'), QUEEN('q'), KING('k'), BLANK('.');
+		
+		private char symbol;
+		
+		private Type(char symbol) {
+			this.symbol = symbol;
+		}
+		
+		public char getSymbol() {
+			return symbol;
+		}
 	};
 
-	private Pieces(Color color, Piece piece) {
+	private Pieces(Color color, Type type) {
 		this.color = color;
-		this.name = piece;
+		this.type = type;
+		this.symbol = type.getSymbol();
 
-		if (piece == Piece.PAWN) {
-			this.symbol = PAWN_SYMBOL;
-			if (color == Color.BLACK)
-				this.symbol = Character.toUpperCase(PAWN_SYMBOL);
-		}
-
-		if (piece == Piece.ROOK) {
-			this.symbol = ROOK_SYMBOL;
-			if (color == Color.BLACK)
-				this.symbol = Character.toUpperCase(ROOK_SYMBOL);
-
-		}
-
-		if (piece == Piece.KNIGHT) {
-			this.symbol = KNIGHT_SYMBOL;
-			if (color == Color.BLACK)
-				this.symbol = Character.toUpperCase(KNIGHT_SYMBOL);
-		}
-
-		if (piece == Piece.BISHOP) {
-			this.symbol = BISHOP_SYMBOL;
-			if (color == Color.BLACK)
-				this.symbol = Character.toUpperCase(BISHOP_SYMBOL);
-		}
-
-		if (piece == Piece.QUEEN) {
-			this.symbol = QUEEN_SYMBOL;
-			if (color == Color.BLACK)
-				this.symbol = Character.toUpperCase(QUEEN_SYMBOL);
-		}
-
-		if (piece == Piece.KING) {
-			this.symbol = KING_SYMBOL;
-			if (color == Color.BLACK)
-				this.symbol = Character.toUpperCase(KING_SYMBOL);
-		}
-
-		if (piece == Piece.BLANK) {
-			this.symbol = BLANK_SYMBOL;
-		}
+		if (color == Color.BLACK)
+			this.symbol = Character.toUpperCase(type.getSymbol());
 	}
 
 	/**
@@ -86,17 +51,17 @@ public class Pieces {
 		return symbol;
 	}
 
-	public static Pieces create(Color color, Piece piece) {
+	public static Pieces create(Color color, Type type) {
 		if (color == Color.WHITE)
 			whiteCounter++;
 		else if (color == Color.BLACK)
 			blackCounter++;
 
-		return new Pieces(color, piece);
+		return new Pieces(color, type);
 	}
 
-	public String getName() {
-		return this.name.toString();
+	public String getType() {
+		return this.type.toString();
 	}
 
 	public static int getWhiteCounter() {
@@ -119,5 +84,91 @@ public class Pieces {
 			return true;
 		else
 			return false;
+	}
+
+	public static Pieces noPiece() {
+		return new Pieces(Color.NONE, Type.BLANK);
+	}
+
+	public static Pieces createWhitePawn() {
+		return new Pieces(Color.WHITE, Type.PAWN);
+	}
+
+	public static Pieces createBlackPawn() {
+		return new Pieces(Color.BLACK, Type.PAWN);
+	}
+
+	public static Pieces createWhiteRook() {
+		return new Pieces(Color.WHITE, Type.ROOK);	
+		}
+
+	public static Pieces createBlackRook() {
+		return new Pieces(Color.BLACK, Type.ROOK);
+	}
+
+	public static Pieces createWhiteKnight() {
+		return new Pieces(Color.WHITE, Type.KNIGHT);
+	}
+
+	public static Pieces createBlackKnight() {
+		return new Pieces(Color.BLACK, Type.KNIGHT);
+	}
+
+	public static Pieces createWhiteBishop() {
+		return new Pieces(Color.WHITE, Type.BISHOP);
+	}
+
+	public static Pieces createBlackBishop() {
+		return new Pieces(Color.BLACK, Type.BISHOP);
+	}
+
+	public static Pieces createWhiteQueen() {
+		return new Pieces(Color.WHITE, Type.QUEEN);
+	}
+
+	public static Pieces createBlackQueen() {
+		return new Pieces(Color.BLACK, Type.QUEEN);
+	}
+
+	public static Pieces createWhiteKing() {
+		return new Pieces(Color.WHITE, Type.KING);
+	}
+
+	public static Pieces createBlackKing() {
+		return new Pieces(Color.BLACK, Type.KING);
+	}
+	
+	public static Pieces createWhite(Type type) {
+		if (type == Type.PAWN)
+			return new Pieces(Color.WHITE, Type.PAWN);
+		else if (type == Type.ROOK)
+			return new Pieces(Color.WHITE, Type.ROOK);
+		else if (type == Type.KNIGHT)
+			return new Pieces(Color.WHITE, Type.KNIGHT);
+		else if (type == Type.BISHOP)
+			return new Pieces(Color.WHITE, Type.BISHOP);
+		else if (type == Type.QUEEN)
+			return new Pieces(Color.WHITE, Type.QUEEN);
+		else if (type == Type.KING)
+			return new Pieces(Color.WHITE, Type.KING);
+		else
+			return null;
+	}
+	
+	public static Pieces createBlack(Type type) {
+		if (type == Type.PAWN)
+			return new Pieces(Color.BLACK, Type.PAWN);
+		else if (type == Type.ROOK)
+			return new Pieces(Color.BLACK, Type.ROOK);
+		else if (type == Type.KNIGHT)
+			return new Pieces(Color.BLACK, Type.KNIGHT);
+		else if (type == Type.BISHOP)
+			return new Pieces(Color.BLACK, Type.BISHOP);
+		else if (type == Type.QUEEN)
+			return new Pieces(Color.BLACK, Type.QUEEN);
+		else if (type == Type.KING)
+			return new Pieces(Color.BLACK, Type.KING);
+		else
+			return null;
 	}
 }
