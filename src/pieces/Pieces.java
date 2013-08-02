@@ -41,9 +41,9 @@ public class Pieces {
 	}
 
 	/**
-	 * @return 체스말의 색을 리턴합니다.
+	 * @return 체스말의 색을 리턴합니다.(enum -> String 형변환)
 	 */
-	String getColor() {
+	public String getColor() {
 		return this.color.toString();
 	}
 

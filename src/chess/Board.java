@@ -1,8 +1,11 @@
 package chess;
 import java.util.ArrayList;
+
 import static util.StringUtil.NEWLINE;
 import chess.Row;
 import pieces.Pieces;
+import pieces.Pieces.Color;
+import pieces.Pieces.Type;
 
 /**
  * 체스 보드판을 생성합니다.
@@ -36,6 +39,19 @@ public class Board {
 			sb1.append(NEWLINE);
 		}
 		return sb1.toString();
+	}
+
+	public int countPieces(Color color, Type type) {
+		int num=0;
+		
+		for(int rowIdx=0; rowIdx<ROW_SIZE; rowIdx++){
+			for(int colIdx=0; colIdx<COLUMN_SIZE; colIdx++){
+				if(Board.get(rowIdx).get(colIdx).getColor() == color.toString() && 
+						Board.get(rowIdx).get(colIdx).getType() == type.toString())
+					num++;
+			}
+		}
+		return num;
 	}
 
 }

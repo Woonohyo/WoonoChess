@@ -1,6 +1,9 @@
 package chess;
 import util.StringUtil;
 import junit.framework.TestCase;
+import pieces.Pieces;
+import pieces.Pieces.Type;
+import pieces.Pieces.Color;
 
 
 public class BoardTest extends TestCase {
@@ -19,5 +22,14 @@ public class BoardTest extends TestCase {
 					StringUtil.appendNewLine("pppppppp") +
 					StringUtil.appendNewLine("rnbqkbnr"), 
 					myBoard.print());
+	}
+	
+	public void testCounting() throws Exception {
+		myBoard.initialize();
+		assertEquals(8, myBoard.countPieces(Color.WHITE, Type.PAWN));
+		assertEquals(1, myBoard.countPieces(Color.BLACK, Type.KING));
+		assertEquals(2, myBoard.countPieces(Color.BLACK, Type.KNIGHT));
+		
+		
 	}
 }

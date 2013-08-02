@@ -1,5 +1,6 @@
 package pieces;
 import pieces.Pieces.Type;
+import pieces.Pieces.Color;
 import chess.Board;
 import junit.framework.TestCase;
 
@@ -18,9 +19,9 @@ public class PiecesTest extends TestCase {
 	}
 	
 	public void testWhichColor() throws Exception {
-		Pieces pawn1 = Pieces.create(Pieces.Color.WHITE, Pieces.Type.PAWN);
-		Pieces pawn2 = Pieces.create(Pieces.Color.BLACK, Pieces.Type.PAWN);
-		Pieces queen1 = Pieces.create(Pieces.Color.WHITE, Pieces.Type.QUEEN);
+		Pieces pawn1 = Pieces.create(Color.WHITE, Type.PAWN);
+		Pieces pawn2 = Pieces.create(Pieces.Color.BLACK, Type.PAWN);
+		Pieces queen1 = Pieces.create(Pieces.Color.WHITE, Type.QUEEN);
 		
 		assertEquals(true, pawn1.isWhite());
 		assertEquals(true, pawn2.isBlack());
