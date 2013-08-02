@@ -10,6 +10,7 @@ public class Pieces {
 	private Color color;
 	private Type type;
 	private char symbol;
+	private double point;
 	private static int blackCounter;
 	private static int whiteCounter;
 
@@ -18,16 +19,22 @@ public class Pieces {
 	};
 	
 	public enum Type {
-		PAWN('p'), KNIGHT('n'), ROOK('r'), BISHOP('b'), QUEEN('q'), KING('k'), BLANK('.');
+		PAWN('p', 1), KNIGHT('n', 2.5), ROOK('r', 5), BISHOP('b', 3), QUEEN('q', 9), KING('k', 0), BLANK('.', 0);
 		
 		private char symbol;
+		private double point;
 		
-		private Type(char symbol) {
+		private Type(char symbol, double point) {
 			this.symbol = symbol;
+			this.point = point;
 		}
 		
 		public char getSymbol() {
 			return symbol;
+		}
+		
+		public double getPoint() {
+			return point;
 		}
 	};
 
@@ -35,9 +42,12 @@ public class Pieces {
 		this.color = color;
 		this.type = type;
 		this.symbol = type.getSymbol();
+		this.point = type.getPoint();
 
-		if (color == Color.BLACK)
+		if (color == Color.BLACK) {
 			this.symbol = Character.toUpperCase(type.getSymbol());
+		}
+		
 	}
 
 	/**
@@ -49,6 +59,10 @@ public class Pieces {
 
 	public char getSymbol() {
 		return symbol;
+	}
+	
+	public double getPoint() {
+		return point;
 	}
 
 	public static Pieces create(Color color, Type type) {
