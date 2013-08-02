@@ -7,6 +7,8 @@ import pieces.Pieces.Color;
 
 public class BoardTest extends TestCase {
 	private Board myBoard;
+	String blankRank = StringUtil.appendNewLine("........");
+
 
 	public void setUp() {
 		myBoard = new Board();
@@ -14,7 +16,6 @@ public class BoardTest extends TestCase {
 	
 	public void testCreate() throws Exception {
 		myBoard.initialize();
-		String blankRank = StringUtil.appendNewLine("........");
 		assertEquals(StringUtil.appendNewLine("RNBQKBNR") +
 					StringUtil.appendNewLine("PPPPPPPP") + 
 					blankRank + blankRank + blankRank + blankRank +
@@ -35,4 +36,16 @@ public class BoardTest extends TestCase {
 		assertEquals('R', myBoard.getPiece("a8"));
 		assertEquals('P', myBoard.getPiece("d7"));
 	}
+	
+	public void testSetPiece() throws Exception {
+		myBoard.blankInitialize();
+
+		assertEquals(
+				blankRank + blankRank + blankRank + blankRank +
+				blankRank + blankRank + blankRank + blankRank, 
+					myBoard.print());
+		myBoard.setPiece("a8", pieces.Pieces.createBlackKing());
+		assertEquals('K', myBoard.getPiece("a8"));
+	}
+	
 }

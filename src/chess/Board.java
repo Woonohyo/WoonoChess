@@ -31,6 +31,17 @@ public class Board {
 		Board.add(Row.CreateWhitePawns());
 		Board.add(Row.CreateWhiteMain());
 	}
+	public void blankInitialize() {
+		Board.add(Row.CreateBlankRow());
+		Board.add(Row.CreateBlankRow());
+		Board.add(Row.CreateBlankRow());
+		Board.add(Row.CreateBlankRow());
+		Board.add(Row.CreateBlankRow());
+		Board.add(Row.CreateBlankRow());
+		Board.add(Row.CreateBlankRow());
+		Board.add(Row.CreateBlankRow());
+	
+	}
 
 	public String print() {
 		StringBuilder sb1 = new StringBuilder();
@@ -61,5 +72,14 @@ public class Board {
 		int rowIdx = Character.getNumericValue(array[1]);
 		
 		return Board.get(ROW_SIZE - rowIdx).get(colIdx - 97).getSymbol();
+	}
+
+	public void setPiece(String coordinate, Pieces chessman) {
+		char array[] = coordinate.toCharArray();
+		int colIdx = (int)array[0];
+		int rowIdx = Character.getNumericValue(array[1]);
+		
+		Board.get(ROW_SIZE - rowIdx).set(colIdx - 97, chessman);
+		
 	}
 }
