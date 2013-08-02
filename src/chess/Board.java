@@ -51,7 +51,15 @@ public class Board {
 					num++;
 			}
 		}
+		
 		return num;
 	}
 
+	public char getPiece(String coordinate) {
+		char array[] = coordinate.toCharArray();
+		int colIdx = (int)array[0];
+		int rowIdx = Character.getNumericValue(array[1]);
+		
+		return Board.get(ROW_SIZE - rowIdx).get(colIdx - 97).getSymbol();
+	}
 }
