@@ -101,9 +101,8 @@ public class Row {
 	public static double getPawnPoints() {
 		double pawnPoints = 0;
 		
-		for(int i : numOfPawn){
+		for(int i : numOfPawn)
 			if( i > 1 ) pawnPoints += 0.5 * i;		
-		}
 		
 		for(int j = 0; j < 8; j++)
 			numOfPawn[j] = 0;
