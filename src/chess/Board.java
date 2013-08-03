@@ -1,6 +1,5 @@
 package chess;
 import java.util.ArrayList;
-
 import static util.StringUtil.NEWLINE;
 import chess.Row;
 import pieces.Pieces;
@@ -84,43 +83,16 @@ public class Board {
 	}
 
 	public double getPoints(Color color) {
-		double point = 0;
-		int numOfPawn = 0;
+		double points = 0;
+		double pawnPoints = 0;
 		
-		if ( color == Color.WHITE ) {
-			for( int rowIdx = 0; rowIdx < ROW_SIZE; rowIdx++ ){
-				for( int colIdx = 0; colIdx < COLUMN_SIZE; colIdx++ ){
-					if(Character.isLowerCase(Board.get(rowIdx).get(colIdx).getSymbol())) {
-						point = point + Board.get(rowIdx).get(colIdx).getPoint();
-						System.out.println(point);
-					}
-					if( Board.get(colIdx).get(rowIdx).getSymbol() == 'p' ) {
-						numOfPawn++;
-						System.out.println(numOfPawn);
-					}
-					if ( numOfPawn > 1) {
-						point = point - (0.5 * numOfPawn);
-					}
-				}
-				numOfPawn = 0;
-				System.out.println(point);
-			}
-		}
-				
-		else if ( color == Color.BLACK) {
-			for(int rowIdx = 0; rowIdx < ROW_SIZE; rowIdx++){
-				for( int colIdx = 0; colIdx < COLUMN_SIZE; colIdx++ ){
-					if(!(Character.isLowerCase(Board.get(rowIdx).get(colIdx).getSymbol())))
-						point = point + Board.get(rowIdx).get(colIdx).getPoint();
-					if( Board.get(colIdx).get(rowIdx).getSymbol() == 'p' )
-						numOfPawn++;
-					if ( numOfPawn > 1)
-						point = point - (0.5 * numOfPawn);
-				}
-			}
-		}
+		for ( int rowIdx = 0; rowIdx < ROW_SIZE; rowIdx++)
+			points = points + Row.getRowPoints(Board.get(rowIdx), color);
 		
+		pawnPoints = Row.getPawnPoints();
 		
-		return point;
+		return points - pawnPoints;
+		
 	}
+	
 }
